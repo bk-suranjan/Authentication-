@@ -3,7 +3,7 @@ import { CiLogin } from "react-icons/ci";
 import { TextField, Button, InputAdornment, IconButton, Divider } from '@mui/material';
 import * as yup from 'yup';
 import { Form, Formik } from 'formik';
-import {Google, Visibility,VisibilityOff} from '@mui/icons-material'
+import {ArrowBack, Google, Visibility,VisibilityOff} from '@mui/icons-material'
 
 
 function LoginPage() {
@@ -68,14 +68,15 @@ function LoginPage() {
                                 </div>
                                 <div className="col-12">
                                     <TextField   
-                                    fullWidth       
+                                    fullWidth    
+                                    value={values.password}   
                                     size='small'
                                     label='password'
                                     type={visible ? 'text' : 'password'}
                                     name='password'
                                     onBlur={handleBlur}
                                     onChange={handleChange}
-                                    error={touched.password && errors.password}
+                                    error={touched.password && Boolean(errors.password)}
                                     helperText={touched.password && errors.password}
 
                                     InputProps ={{
@@ -104,7 +105,7 @@ function LoginPage() {
                                     <Button variant='outlined' fullWidth endIcon={<Google />} > google</Button>
                                 </div>
                                 <div className="col-12">
-                                    <Button variant='outlined' fullWidth> create an account</Button>
+                                    <Button startIcon={<ArrowBack/>} variant='outlined' fullWidth> create an account</Button>
                                 </div>
                                 <div className="col-12">
                                     <Button variant='text' color='error' fullWidth>forget password</Button>
