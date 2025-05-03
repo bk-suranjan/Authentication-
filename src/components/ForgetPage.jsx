@@ -51,7 +51,7 @@ function ForgetPage() {
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
-                    InputProps={{
+                    inputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
                           <AlternateEmail /> {/* Directly use the icon here */}
